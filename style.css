@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #c0d6fb, #dc8bb8);
+  font-family: "Roboto", sans-serif;
+}
+
+.board-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.board-container.x .cell:not(.x):not(.circle):hover::after,
+.board-container.x .cell:not(.x):not(.circle):hover::before {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.board-container.circle .cell:not(.x):not(.circle):hover::after,
+.board-container.circle .cell:not(.x):not(.circle):hover::before {
+  border: 8px solid rgba(255, 255, 255, 0.3) !important ;
+}
+
+.cell {
+  border: 2px solid white;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+/* X */
+.cell.x::before,
+.cell.x::after,
+.board-container.x .cell:not(.x):not(.circle):hover::after,
+.board-container.x .cell:not(.x):not(.circle):hover::before {
+  content: "";
+  height: calc(100px * 0.12);
+  width: calc(100px * 0.9);
+  background: white;
+  position: absolute;
+}
+
+.cell.x::before,
+.board-container.x .cell:hover::before {
+  transform: rotate(45deg);
+}
+.cell.x::after,
+.board-container.x .cell:hover::after {
+  transform: rotate(-45deg);
+}
+
+/* Circle */
+.cell.circle::before,
+.cell.circle::after,
+.board-container.circle .cell:not(.x):not(.circle):hover::after,
+.board-container.circle .cell:not(.x):not(.circle):hover::before {
+  content: "";
+  height: calc(100px * 0.6);
+  width: calc(100px * 0.6);
+  position: absolute;
+  border: 8px solid white;
+  border-radius: 50%;
+}
+
+.win-msg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.win-msg button {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: white;
+  background: #dc8bb8;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.win-msg button:hover {
+  background: #f198c9;
+  transition: all 0.3s ease;
+}
+
+.win-msg-text {
+  color: white;
+  font-size: 5rem;
+  letter-spacing: 1px;
+}
+/* Ferramentas */
+
+.show-win-msg {
+  display: flex;
+}
