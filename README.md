@@ -1,5 +1,6 @@
 # Jogo-da-Velha_JS
-Jogo da velha feito com HTML, CSS e JavaScript afim de estudar alguns conceitos e aprimorar minha lógica!
+Jogo da velha feito com HTML, CSS e JavaScript afim de estudar alguns conceitos e aprimorar minha lógica.<br>
+Foi realmente um desafio, mas pesquisei muito e consegui por em prática o que queria.
 <br><br>
 <h1>Preview</h1>
 <div align="center">
